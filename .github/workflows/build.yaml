@@ -14,6 +14,7 @@ jobs:
             py: "3.10"
 
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     name: "'${{ matrix.toxenv }}' on py${{ matrix.py }}"
     steps:
       - uses: actions/checkout@v7
@@ -39,6 +40,7 @@ jobs:
   # run tests after building an sdist and unpacking it
   test-sdist:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -65,6 +67,7 @@ jobs:
         py: ['3.10', '3.11', '3.12', '3.13', '3.14']
     name: "Test on ${{ matrix.os }}, py${{ matrix.py }}"
     runs-on: "${{ matrix.os }}-latest"
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
 
@@ -108,6 +111,7 @@ jobs:
   collate-tests:
     needs: [ci-test-matrix]
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     name: "Collate results to check for skipped tests"
     steps:
       - uses: actions/checkout@v7
@@ -127,6 +131,7 @@ jobs:
   # "Adding new hooks"
   ensure-catalog-matches-hook-config:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
 
@@ -156,6 +161,7 @@ jobs:
   self-check:
     name: "Self-Check"
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
 

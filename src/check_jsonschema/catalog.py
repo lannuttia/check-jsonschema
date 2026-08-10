@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import typing as t
+import urllib.parse
 
 
 def _bitbucket_pipelines_url() -> str:
@@ -9,6 +10,14 @@ def _bitbucket_pipelines_url() -> str:
 
 def _githubusercontent_url(owner: str, repo: str, ref: str, path: str) -> str:
     return f"https://raw.githubusercontent.com/{owner}/{repo}/{ref}/{path}"
+
+
+def _gitlab_raw_url(repo: str, file_path: str, ref: str) -> str:
+    return (
+        "https://gitlab.com/api/v4"
+        f"/projects/{urllib.parse.quote(repo, safe='')}/repository/files"
+        f"/{urllib.parse.quote(file_path, safe='')}/raw?ref={ref}"
+    )
 
 
 # this lists custom schemas which are *not* part of the vendored schema catalog
@@ -263,9 +272,10 @@ SCHEMA_CATALOG: dict[str, dict[str, t.Any]] = {
         },
     },
     "gitlab-ci": {
-        "url": (
-            "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts"
-            "/editor/schema/ci.json"
+        "url": _gitlab_raw_url(
+            "gitlab-org/gitlab",
+            "app/assets/javascripts/editor/schema/ci.json",
+            "master",
         ),
         "hook_config": {
             "name": "Validate GitLab CI config",

@@ -13,6 +13,13 @@ Unreleased
 - Add Datadog schema hooks: ``check-datadog-continuous-testing``,
   ``check-datadog-service-definition``, and ``check-datadog-software-catalog``.
   Thanks :user:`lannuttia`! (:issue:`702`, :pr:`701`)
+  
+0.38.0
+------
+
+- Update vendored schemas: bitbucket-pipelines, buildkite, circle-ci, codecov,
+  compose-spec, dependabot, gitlab-ci, mergify, readthedocs, renovate, taskfile,
+  woodpecker-ci (2026-08-08)
 - Add a dedicated ``check-github-workflows-require-timeout`` pre-commit hook for
   requiring ``timeout-minutes`` on all GitHub Workflow jobs. (:issue:`639`)
 

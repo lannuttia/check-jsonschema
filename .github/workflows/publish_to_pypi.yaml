@@ -7,6 +7,7 @@ on:
 jobs:
   build-dists:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - uses: actions/checkout@v7
@@ -30,6 +31,7 @@ jobs:
   publish_pypi:
     needs: [build-dists]
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     environment: publish
     permissions:
       id-token: write
@@ -46,6 +48,7 @@ jobs:
   publish_release_asset:
     needs: [build-dists]
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - uses: actions/download-artifact@v8
