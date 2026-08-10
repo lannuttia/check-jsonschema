@@ -192,7 +192,7 @@ Validate Datadog Continuous Testing config against the schema provided by Schema
     :caption: example config
 
     - repo: https://github.com/python-jsonschema/check-jsonschema
-      rev: 0.37.4
+      rev: 0.38.0
       hooks:
         - id: check-datadog-continuous-testing
 
@@ -206,7 +206,7 @@ Validate Datadog Service Definition against the schema provided by SchemaStore
     :caption: example config
 
     - repo: https://github.com/python-jsonschema/check-jsonschema
-      rev: 0.37.4
+      rev: 0.38.0
       hooks:
         - id: check-datadog-service-definition
 
@@ -220,7 +220,7 @@ Validate Datadog Software Catalog entity against the schema provided by SchemaSt
     :caption: example config
 
     - repo: https://github.com/python-jsonschema/check-jsonschema
-      rev: 0.37.4
+      rev: 0.38.0
       hooks:
         - id: check-datadog-software-catalog
 
